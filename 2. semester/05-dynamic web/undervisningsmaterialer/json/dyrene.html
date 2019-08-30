@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+    <style>
+        .data_container {
+            display: grid;
+            grid-gap: 10px;
+            grid-template-columns: repeat (3, 1fr);
+            max-width: 250px;
+            margin: 0 auto;
+        }
+
+        article {
+            border: 1px solid black;
+        }
+
+        @media screen and (min-width: 600px) {
+            .modtager {
+                grid-template-columns: repeat (2, 1fr);
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <section class="data_container"></section>
+    <template>
+        <article>
+            <h1></h1>
+            <p class="type"></p>
+            <p class="levested"></p>
+            <img src="" alt="">
+        </article>
+    </template>
+
+
+
+
+
+    <script>
+        let dyrene = [];
+        document.addEventListener("DOMContentLoaded", getJson);
+
+        async function getJson() {
+            let jsonData = await fetch("dyr.json");
+            dyrene = await jsonData.json();
+            visDyrene();
+        }
+
+
+
+
+        function visDyrene() {
+            const listevisning = document.querySelector(".data_container");
+            const dyretemplate = document.querySelector("template");
+
+
+            dyrene.forEach(dyr => {
+                const klon = dyretemplate.cloneNode(true).content;
+                console.log(klon);
+                klon.querySelector("h1").textContent = dyr.navn;
+                klon.querySelector(".levested").textContent = dyr.levested;
+                klon.querySelector(".type").textContent = dyr.type;
+                klon.querySelector("img").src = dyr.billede;
+                listevisning.appendChild(klon);
+            });
+        }
+
+    </script>
+</body>
+
+</html>
