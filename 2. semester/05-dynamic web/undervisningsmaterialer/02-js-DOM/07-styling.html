@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Cirkel og firkant opgave</title>
+    <meta name="viewport" content="width=device-width, user-scalable-no, intial-scale=1.0, maximum-scale=1.0, minimum.scale=1.0">
+    <style>
+        .square {
+            background-color: green;
+            padding: 10px;
+            height: 100px;
+            width: 100px;
+            text-align: center;
+            line-height: 100px;
+        }
+
+        .circle {
+            background-color: red;
+            border-radius: 50%;
+            padding: 10px;
+            height: 100px;
+            width: 100px;
+            text-align: center;
+            line-height: 100px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="square">
+    </div>
+    <div class="circle">
+    </div>
+
+    <script>
+        let squareURL = `http://mabe-kea.dk/E19/pics/frog.png`;
+        let circleURL = `http://mabe-kea.dk/E19/pics/pig.png`;
+
+        document.addEventListener("DOMContentLoaded", start);
+
+        function start() {
+            console.log("start");
+            let square = document.querySelector(".square");
+            let circle = document.querySelector(".circle");
+
+            square.innerHTML = `<img src= ${squareURL} alt= "grøn frø" >`
+            circle.innerHTML = `<img src= ${circleURL} alt= "rød gris" >`
+
+            square.addEventListener("click", flyt);
+            circle.addEventListener("click", stop);
+
+            function flyt() {
+                let squareStart = square.innerHTML;
+                square.innerHTML = circle.innerHTML;
+                circle.innerHTML = squareStart;
+            }
+
+            function stop() {
+                square.removeEventListener("click", flyt);
+                square.style.transition = "1.5s";
+                square.style.backgroundColor = "red";
+                circle.style.transition = "1.5s";
+                circle.style.transform = "scale(0)";
+            }
+        }
+
+    </script>
+</body>
+
+</html>

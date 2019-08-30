@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+    <style>
+        body {
+            background-color: rgba(216, 228, 235, 0.5);
+        }
+
+        img {}
+
+        .data_container {
+            display: grid;
+            grid-gap: 0px;
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: white;
+
+        }
+
+        article {
+            border: 1px solid rgb(188, 188, 188);
+            font-family: sans-serif;
+            padding: 20px;
+        }
+
+        .tekst {
+            color: rgb(129, 129, 129);
+        }
+
+        .dato {
+            font-size: 12px;
+            color: #bcbcbc;
+        }
+
+        @media screen and (min-width: 600px) {
+            .data_container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <section class="data_container"></section>
+    <template>
+        <article>
+            <img src="" alt="">
+            <h1></h1>
+            <p class="tekst"></p>
+            <p class="dato"></p>
+        </article>
+    </template>
+
+
+
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", start);
+
+        let aktiviteter = [{
+            "titel": "Ældre er overrepræsenteret i cyklistulykker",
+            "tekst": "Når man har passeret pensionsalderen, er der rig mulighed for at leve et aktivt liv, hvilket mange seniorer heldigvis gør. Men desværre viser ulykkestallene, at alt for mange personer over 65 år også kommer til skade, når de bevæger sig rundt på cykel.",
+            "dato": "23. august 2019",
+            "billede": "https://dit-roskilde.dk/wp-content/uploads/2019/08/Cykelulykker-200x150.jpg"
+        }, {
+            "titel": "Oprydning efter skybrud kan være farligt",
+            "tekst": "Når vandet fosser ind i boligen eller virksomheden som følge af et skybrud, har de fleste mennesker kun én tanke i hovedet: at redde, hvad der reddes kan, og få det indtrængende vand stoppet i en pokkers fart.",
+            "dato": "23. august 2019",
+            "billede": "https://dit-roskilde.dk/wp-content/uploads/2019/08/abw-regnvejr-paraply-200x150.jpg"
+
+        }, {
+            "titel": "Roskilde Byløb 2019",
+            "tekst": "Børneløbet blev skudt i gang kl. 18.00 og der var fart på de små ben! Dit Roskilde var et hurtigt smut forbi.",
+            "dato": "22. august 2019",
+            "billede": "https://dit-roskilde.dk/wp-content/uploads/2019/08/Roskilde-Byl%C3%B8b-b%C3%B8rn-august-2019-abw-7-200x150.jpg"
+        }, {
+            "titel": "H.K.H. Kronprinsen åbner Naturens Dag 2019",
+            "tekst": "5. klasse fra Bramsnæsvigskolen får sved på panden, når de sammen med Hans Kongelige Højhed Kronprinsen skyder Naturens Dag i gang i det betagende landskab i Ejby Ådal ved Roskilde.",
+            "dato": "22. august 2019",
+            "billede": "https://dit-roskilde.dk/wp-content/uploads/2019/08/kronprinsen2010_Territorium-200x150.jpg"
+        }, {
+            "titel": "Skandinavisk Lego finale kommer til Roskilde",
+            "tekst": "Skoleelever fra Danmark, Norge og Sverige dyster hvert år i november i den skandinaviske finale i First Lego League – verdens største teknologi- og projektturnering for 10-16 årige. Og i år kommer det til at foregå i Roskilde Kongrescenter Bauhaus Arena.",
+            "dato": "22. august 2019",
+            "billede": "https://dit-roskilde.dk/wp-content/uploads/2019/08/Lego_robot-200x150.jpg"
+        }];
+
+        function start() {
+
+            const listevisning = document.querySelector(".data_container");
+            const template = document.querySelector("template");
+
+            aktiviteter.forEach(aktivitet => {
+                const klon = template.cloneNode(true).content;
+                console.log(klon);
+                klon.querySelector("h1").textContent = aktivitet.titel;
+                klon.querySelector(".tekst").textContent = aktivitet.tekst;
+                klon.querySelector(".dato").textContent = aktivitet.dato;
+                klon.querySelector("img").src = aktivitet.billede;
+                listevisning.appendChild(klon);
+
+
+            });
+
+        }
+
+    </script>
+</body>
+
+</html>

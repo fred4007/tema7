@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Frøopgave</title>
+    <meta name="viewport" content="width=device-width, user-scalable-no, intial-scale=1.0, maximum-scale=1.0, minimum.scale=1.0">
+    <style>
+        #content {
+            border: 1px solid black;
+            padding: 10px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id="content">
+        <div>
+            <a href="https://www.kea.dk/">KEA</a>
+        </div>
+        <div>
+            <a href="https://github.com/fred4007/portfolio-eksamen-1semester">Mit Github</a></div>
+        <div><img src="http://helf-kea.dk/test/frog.png" alt="frog" /></div>
+    </div>
+    <script>
+        const content = document.querySelector("#content");
+        const første = document.querySelector("#content div a");
+        const anden = document.querySelector("#content div + div");
+        /* eller
+        const anden = document.querySelector("#content div:nth-child(2)");*/
+        const sidste = document.querySelector("#content div + div + div");
+        /* eller da der kun er et foto =
+        const sidste = document.querySelector("#content img");*/
+
+        første.innerHTML = "<h1>Link til KEAs hjemmeside</h1>";
+        console.log(content);
+        console.log(første);
+        console.log(anden);
+        console.log(sidste);
+
+    </script>
+</body>
+
+</html>

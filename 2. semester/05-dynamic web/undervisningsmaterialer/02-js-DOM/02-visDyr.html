@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <article>
+        <h1 class="navn"></h1>
+        <h1 class="type"></h1>
+        <img src="" alt="">
+        <p class="email"></p>
+    </article>
+
+    <script>
+        const dyr = {
+            "navn": "gris",
+            "type": "pattedyr",
+            "billede": "http://mabe-kea.dk/E19/pics/pig.png",
+            "levested": "svinefarme"
+        }
+
+        let tekst = "Dyr: " + dyr.navn + ", type: " + dyr.type + ", levested: " + dyr.levested;
+
+        const navneContainer = document.querySelector(".navn");
+        const typeContainer = document.querySelector(".type");
+        const billedContainer = document.querySelector("img");
+        const levestedContainer = document.querySelector("p");
+
+        navneContainer.textContent = `${dyr.navn}`;
+        typeContainer.textContent = `${dyr.type}`;
+        billedContainer.src = dyr.billede;
+        levestedContainer.textContent = dyr.levested;
+
+
+        /*eller
+        let tekst = `Mit fornavn er ${person.fornavn} og mit efternavn er ${person.efternavn}`;
+        */
+
+        console.log(tekst)
+
+    </script>
+
+</body>
+
+</html>
