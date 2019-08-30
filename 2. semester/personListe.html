@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+    <style>
+        img {
+            max-width: 200px;
+            display: block;
+            margin: auto;
+            padding-top: 10px;
+        }
+
+        body {
+            background-color: #56636f;
+        }
+
+        .data_container {
+            display: grid;
+            grid-gap: 5px;
+            grid-template-columns: repeat(1, 1fr);
+            margin: auto;
+            max-width: 1000px;
+        }
+
+        article {
+            border: 1px solid #585858;
+            padding: 0px 10px 10px 10px;
+            color: #585858;
+            background-color: aliceblue;
+            font-size: 10px;
+            font-family: sans-serif;
+            max-width: 100%;
+            text-align: center;
+
+        }
+
+        a {
+            text-align: center;
+        }
+
+        @media screen and (min-width: 700px) {
+            .data_container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media screen and (min-width: 1020px) {
+            .data_container {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <section class="data_container"></section>
+    <template>
+        <article>
+            <h2></h2>
+            <a href=""></a>
+            <img src="" alt="">
+        </article>
+    </template>
+
+
+
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", jsonData);
+
+
+        let personer;
+
+        async function jsonData() {
+
+            let jsonData = await fetch("https://spreadsheets.google.com/feeds/list/1Xge7slZ9dEOTCn1Yxl3OE4xgvrXOL8Y_iu3WN1yGB1U/od6/public/values?alt=json");
+
+            personer = await jsonData.json();
+
+
+            visPersoner();
+        }
+
+
+        function visPersoner() {
+            const listevisning = document.querySelector(".data_container");
+            const template = document.querySelector("template");
+
+
+            personer.feed.entry.forEach((person) => {
+
+
+                const klon = template.cloneNode(true).content;
+                console.log(klon);
+                klon.querySelector("h2").textContent = person.gsx$navn.$t;
+                klon.querySelector("img").src = person.gsx$billede.$t;
+                klon.querySelector("a").textContent = person.gsx$github.$t;
+                klon.querySelector("a").href = `https://www.github.com/${person.gsx$github.$t}`;
+
+                listevisning.appendChild(klon);
+
+            });
+
+        }
+
+    </script>
+</body>
+
+</html>
