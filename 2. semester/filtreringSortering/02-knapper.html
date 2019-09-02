@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+    <style>
+        img {
+            max-width: 200px;
+            display: block;
+            margin: auto;
+            padding-top: 10px;
+        }
+
+        body {
+            background-color: #56636f;
+        }
+
+        .data_container {
+            display: grid;
+            grid-gap: 5px;
+            grid-template-columns: repeat(1, 1fr);
+            margin: auto;
+            max-width: 1000px;
+        }
+
+        article {
+            border: 1px solid #585858;
+            padding: 0px 10px 10px 10px;
+            color: #585858;
+            background-color: aliceblue;
+            font-size: 10px;
+            font-family: sans-serif;
+            max-width: 100%;
+            text-align: center;
+
+        }
+
+
+        .valgt {
+            background-color: lightgrey;
+            color: white;
+        }
+
+        a {
+            text-align: center;
+        }
+
+        button {
+            background: white;
+            border: 3px;
+            padding: 5px 15px;
+            margin: 10px auto;
+            width: 70px;
+        }
+
+        @media screen and (min-width: 700px) {
+            .data_container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media screen and (min-width: 1020px) {
+            .data_container {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <button class="filter" data-køn="alle">Alle</button>
+        <button class="filter" data-køn="m">Mænd</button>
+        <button class="filter valgt" data-køn="k">Kvinder</button>
+        <button class="filter" data-køn="andet">Andet</button>
+
+    </header>
+
+    <section class="data_container"></section>
+    <template class="theTemplate">
+        <article>
+            <h2></h2>
+            <a href=""></a>
+            <img src="" alt="billede">
+        </article>
+    </template>
+
+
+
+
+
+
+    <script>
+        let personer;
+        const dest = document.querySelector(".data_container");
+        const theTemplatePointer = document.querySelector(".theTemplate");
+        let filter = "k";
+
+
+        document.addEventListener("DOMContentLoaded", jsonData);
+
+        async function jsonData() {
+            let jsonData = await fetch("https://spreadsheets.google.com/feeds/list/1Xge7slZ9dEOTCn1Yxl3OE4xgvrXOL8Y_iu3WN1yGB1U/od6/public/values?alt=json");
+            personer = await jsonData.json();
+            visPersoner();
+        }
+
+
+        function visPersoner() {
+            personer.feed.entry.forEach((person) => {
+                if (person.gsx$køn.$t == filter) {
+                    const theClone = theTemplatePointer.cloneNode(true).content;
+                    theClone.querySelector("h2").textContent = person.gsx$navn.$t;
+                    theClone.querySelector("img").src = person.gsx$billede.$t;
+                    theClone.querySelector("img").alt = person.gsx$navn.$t;
+                    theClone.querySelector("a").textContent = person.gsx$github.$t;
+                    theClone.querySelector("a").href = `https://www.github.com/${person.gsx$github.$t}`;
+
+                    dest.appendChild(theClone);
+                }
+            })
+        }
+
+    </script>
+</body>
+
+</html>
