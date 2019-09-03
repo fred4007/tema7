@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Babushka</title>
+
+    <style>
+        header {
+            background: orange;
+            margin: -10px;
+            justify-content: space-between;
+            display: flex;
+        }
+
+        header h2 {
+            font-size: 40px;
+            padding: 40px;
+            padding-right: 2px;
+            padding-left: 30px;
+            margin: -10px;
+            font-family: sans-serif;
+            color: rgb(255, 105, 180);
+        }
+
+
+        header img {
+            width: 80px;
+            margin-right: 5vw;
+            margin-top: 5vw;
+            height: 100%;
+        }
+
+        #popup {
+            background-color: rgba(229, 96, 188, 0.88);
+            width: 100vh;
+            height: 100vw;
+            position: fixed;
+            margin: 130px -10px;
+            top: 0px;
+            display: none;
+            padding-bottom: 20px;
+        }
+
+        #popup img {
+            max-width: 75vw;
+            height: auto;
+            margin: 20px;
+            padding-top: 0px;
+            display: relative;
+        }
+
+        #popup h2 {
+            margin-top: -40px;
+            padding-right: 290px;
+        }
+
+        .article p {
+            padding-bottom: 20px;
+        }
+
+        .enkeltret {
+            background-color: transparent;
+            margin: 20px;
+            color: rgb(255, 246, 218);
+        }
+
+        .enkeltret p {
+            margin-right: 300px;
+
+        }
+
+        .enkeltret h2 {
+            font-size: 20px;
+            padding-top: 20px;
+
+        }
+
+        .luk {
+            width: 60px;
+            height: 20px;
+            background-color: transparent;
+            color: rgb(255, 246, 218);
+            font-size: 15px;
+            position: relative;
+            display: block;
+            top: 0px;
+            left: -10px;
+        }
+
+        img {
+            width: 100%;
+            display: block;
+            margin: 0px;
+            padding-top: 0px;
+        }
+
+        body {
+            background-color: rgba(198, 140, 33, 0.79);
+        }
+
+        .data_container {
+            display: grid;
+            grid-gap: 10px;
+            grid-template-columns: repeat(1, 1fr);
+            margin: auto;
+            max-width: 1000px;
+
+        }
+
+        article {
+            padding-right: 0px;
+            color: #b7963a;
+            background-color: rgb(255, 246, 218);
+            font-size: 10px;
+            font-family: sans-serif;
+            max-width: 100%;
+            text-align: left;
+            padding-bottom: 0px;
+        }
+
+        article h2 {
+            margin-left: 20px;
+        }
+
+        article p {
+            margin-left: 20px;
+        }
+
+
+        h1 {
+            color: rgb(255, 246, 218);
+            font-family: sans-serif;
+            text-align: center;
+            font-size: 50px;
+        }
+
+        h3 {
+            text-align: right;
+            margin-right: 30px;
+            font-size: 20px;
+            color: hotpink;
+
+        }
+
+        .valgt {
+            background-color: hotpink;
+            color: white;
+        }
+
+        a {
+            text-align: center;
+            text-decoration: none;
+            color: black;
+        }
+
+        a:hover {
+            color: white;
+        }
+
+        button {
+            background: rgb(255, 246, 218);
+            border: 3px;
+            padding: 5px;
+            margin: 10px auto;
+            width: 75px;
+            text-align: center;
+            font-size: 10px;
+            color: hotpink;
+            justify-content: space-between;
+
+        }
+
+        nav {
+            text-align: center;
+
+        }
+
+        footer {
+            background: orange;
+            font-size: 10px;
+            padding: 30px;
+            margin: -10px;
+            font-family: sans-serif;
+            color: hotpink;
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .footer_1 {
+            justify-content: center;
+            text-align: left;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        @media screen and (min-width: 500px) {
+            .data_container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            header img {
+                width: 45px;
+                margin-right: 40px;
+                margin-top: 10px;
+            }
+
+            #popup p {
+                width: 75vw;
+            }
+
+            #popup {
+                margin-top: 95px;
+            }
+
+            #popup h2 {
+                width: 75vw;
+            }
+
+
+            .luk {
+                top: 0px;
+                left: 150px;
+            }
+        }
+
+        @media screen and (min-width: 1020px) {
+            .data_container {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            header img {
+                width: 60px;
+                margin-right: 60px;
+                margin-top: 15px;
+            }
+
+            header h2 {
+                font-size: 70px;
+            }
+
+            #popup {
+                left: 25vw;
+                right: 25vw;
+                top: -10vw;
+                font-family: 40vw;
+                margin: 200px -10px;
+            }
+
+            #popup p {
+                font-family: 40vw;
+                width: 40vw;
+            }
+
+            #popup img {
+                width: 43vw;
+            }
+
+            #popup h2 {
+                width: 75vw;
+            }
+
+
+            .luk {
+                top: 0px;
+                left: 270px;
+            }
+        }
+
+    </style>
+
+
+
+</head>
+
+<body>
+    <header>
+        <h2>BISTRO BABUSHKA</h2>
+        <img src="imgs/logo2.png" alt="logo">
+    </header>
+    <div id="popup">
+        <article class="enkeltret">
+            <button class="luk">
+                LUK
+            </button>
+            <h2>="navn"</h2>
+            <img class="billede" src="" alt="">
+            <p>="lang"</p>
+        </article>
+    </div>
+    <h1>Alle retter</h1>
+    <nav class="menu">
+        <button class="filter valgt" data-kategori="alle">Alle retter</button>
+        <button class="filter" data-kategori="forretter">Forretter</button>
+        <button class="filter" data-kategori="hovedretter">Hovedretter</button>
+        <button class="filter" data-kategori="desserter">Desserter</button>
+    </nav>
+
+
+    <section class="data_container"></section>
+    <template class="theTemplate">
+        <article>
+            <img src="" alt="">
+            <h2>="navn"></h2>
+            <p>="kort"></p>
+            <a href=""></a>
+            <h3>="pris"</h3>
+
+        </article>
+    </template>
+
+    <footer>
+        <div class="footer_1">
+            <p> Adresse: </p>
+            <p> Grønnegade 97 </p>
+            <p> 1234 København K </p>
+        </div>
+        <div class="footer_1">
+            <p> Åbningstider </p>
+            <p> Man-fre 10.30 - 22.00 </p>
+            <p> Lørdag 12.00 - 23.00 </p>
+        </div>
+    </footer>
+
+    <script>
+        let retter;
+        const dest = document.querySelector(".data_container");
+        const theTemplatePointer = document.querySelector(".theTemplate");
+        let filter = "alle";
+
+
+        document.addEventListener("DOMContentLoaded", jsonData);
+
+        async function jsonData() {
+            let jsonData = await fetch("https://spreadsheets.google.com/feeds/list/17Dd7DvkPaFamNUdUKlrFgnH6POvBJXac7qyiS6zNRw0/od6/public/values?alt=json");
+            retter = await jsonData.json();
+            visRetter();
+
+            addEventListenersToButtons();
+        }
+
+
+        function visRetter() {
+            dest.innerHTML = "";
+            retter.feed.entry.forEach((ret) => {
+                if (filter == "alle" || filter == ret.gsx$kategori.$t) {
+                    const theClone = theTemplatePointer.cloneNode(true).content;
+                    //theClone.querySelector("h2").textContent = ret.gsx$kategori.$t;
+                    theClone.querySelector("h2").textContent = ret.gsx$navn.$t;
+                    theClone.querySelector("h3").textContent = `Pris ${ret.gsx$pris.$t},-`;
+                    theClone.querySelector("p").textContent = ret.gsx$kort.$t;
+                    //theClone.querySelector("p").textContent = ret.gsx$lang.$t;
+                    //theClone.querySelector("p").textContent = ret.gsx$oprindelse.$t;
+                    theClone.querySelector("img").src = `imgs/small/${ret.gsx$billede.$t}-sm.jpg`;
+
+                    dest.appendChild(theClone);
+                    dest.lastElementChild.addEventListener("click", () => {
+                        visSingle(ret)
+                    });
+                }
+            })
+        }
+
+        function visSingle(ret) {
+            document.querySelector("#popup").style.display = "block";
+            document.querySelector("#popup .luk").addEventListener("click", lukSingle);
+
+            document.querySelector(".enkeltret h2").textContent = ret.gsx$navn.$t;
+            document.querySelector(".enkeltret p").textContent = ret.gsx$lang.$t;
+            document.querySelector(".enkeltret img").src = `imgs/small/${ret.gsx$billede.$t}-sm.jpg`;
+        }
+
+        function lukSingle() {
+            document.querySelector("#popup").style.display = "none";
+        }
+
+
+
+        function addEventListenersToButtons() {
+            document.querySelectorAll(".filter").forEach(elm => {
+                elm.addEventListener("click", filtrering);
+            })
+        }
+
+        function filtrering() {
+            filter = this.dataset.kategori;
+            document.querySelector("h1").textContent = this.textContent;
+            document.querySelectorAll(".filter").forEach(elm => {
+                elm.classList.remove("valgt");
+            })
+            this.classList.add("valgt");
+            visRetter();
+        }
+
+    </script>
+</body>
+
+</html>
