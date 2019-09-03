@@ -351,7 +351,7 @@
                     const theClone = theTemplatePointer.cloneNode(true).content;
                     //theClone.querySelector("h2").textContent = ret.gsx$kategori.$t;
                     theClone.querySelector("h2").textContent = ret.gsx$navn.$t;
-                    theClone.querySelector("h3").textContent = ret.gsx$pris.$t;
+                    theClone.querySelector("h3").textContent = `Pris ${ret.gsx$pris.$t},-`;
                     theClone.querySelector("p").textContent = ret.gsx$kort.$t;
                     //theClone.querySelector("p").textContent = ret.gsx$lang.$t;
                     //theClone.querySelector("p").textContent = ret.gsx$oprindelse.$t;
