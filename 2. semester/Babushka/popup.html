@@ -179,20 +179,20 @@
         footer {
             background: orange;
             font-size: 10px;
-            padding: 30px;
+            padding: 20px 10px;
             margin: -10px;
             font-family: sans-serif;
             color: hotpink;
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             margin-top: 20px;
         }
 
         .footer_1 {
             justify-content: center;
             text-align: left;
-            padding-left: 20px;
-            padding-right: 20px;
+            padding-left: 30px;
+            padding-right: 30px;
         }
 
         @media screen and (min-width: 500px) {
@@ -222,6 +222,12 @@
             .luk {
                 top: 0px;
                 left: 150px;
+            }
+
+            footer {
+                padding-left: 100px;
+                padding-right: 100px;
+                font-size: 13px;
             }
         }
 
@@ -266,6 +272,12 @@
                 top: 0px;
                 left: 270px;
             }
+
+            footer {
+                padding-left: 300px;
+                padding-right: 300px;
+                font-size: 13px;
+            }
         }
 
     </style>
@@ -285,7 +297,7 @@
                 LUK
             </button>
             <h2>="navn"</h2>
-            <img class="billede" src="" alt="">
+            <img class="billede" src="" alt="img">
             <p>="lang"</p>
         </article>
     </div>
@@ -301,7 +313,7 @@
     <section class="data_container"></section>
     <template class="theTemplate">
         <article>
-            <img src="" alt="">
+            <img src="" alt="img">
             <h2>="navn"></h2>
             <p>="kort"></p>
             <a href=""></a>
@@ -352,7 +364,7 @@
                     theClone.querySelector("p").textContent = ret.gsx$kort.$t;
                     //theClone.querySelector("p").textContent = ret.gsx$lang.$t;
                     //theClone.querySelector("p").textContent = ret.gsx$oprindelse.$t;
-                    theClone.querySelector("img").src = `imgs/small/${ret.gsx$billede.$t}-sm.jpg`;
+                    theClone.querySelector("img").src = `imgs/large/${ret.gsx$billede.$t}.jpg`;
 
                     dest.appendChild(theClone);
                     dest.lastElementChild.addEventListener("click", () => {
@@ -368,7 +380,7 @@
 
             document.querySelector(".enkeltret h2").textContent = ret.gsx$navn.$t;
             document.querySelector(".enkeltret p").textContent = ret.gsx$lang.$t;
-            document.querySelector(".enkeltret img").src = `imgs/small/${ret.gsx$billede.$t}-sm.jpg`;
+            document.querySelector(".enkeltret img").src = `imgs/large/${ret.gsx$billede.$t}.jpg`;
         }
 
         function lukSingle() {

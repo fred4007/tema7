@@ -72,7 +72,7 @@
         <section class="indhold">
             <article class="enkeltret">
                 <h2>="navn"</h2>
-                <img class="billede" src="" alt="">
+                <img class="billede" src="" alt="img">
                 <p>="lang"</p>
             </article>
         </section>
@@ -100,7 +100,7 @@
 
                     document.querySelector(".enkeltret h2").textContent = ret.gsx$navn.$t;
                     document.querySelector(".enkeltret p").textContent = ret.gsx$lang.$t;
-                    document.querySelector(".enkeltret img").src = `imgs/small/${ret.gsx$billede.$t}-sm.jpg`;
+                    document.querySelector(".enkeltret img").src = `imgs/large/${ret.gsx$billede.$t}.jpg`;
 
 
                 }

@@ -288,7 +288,7 @@
                 LUK
             </button>
             <h2>="navn"</h2>
-            <img class="billede" src="" alt="">
+            <img class="billede" src="" alt="img">
             <p>="lang"</p>
         </article>
     </div>
@@ -304,7 +304,7 @@
     <section class="data_container"></section>
     <template class="theTemplate">
         <article>
-            <img src="" alt="">
+            <img src="" alt="img">
             <h2>="navn"></h2>
             <p>="kort"></p>
             <a href=""></a>
@@ -355,7 +355,7 @@
                     theClone.querySelector("p").textContent = ret.gsx$kort.$t;
                     //theClone.querySelector("p").textContent = ret.gsx$lang.$t;
                     //theClone.querySelector("p").textContent = ret.gsx$oprindelse.$t;
-                    theClone.querySelector("img").src = `imgs/small/${ret.gsx$billede.$t}-sm.jpg`;
+                    theClone.querySelector("img").src = `imgs/large/${ret.gsx$billede.$t}.jpg`;
 
                     dest.appendChild(theClone);
                     dest.lastElementChild.addEventListener("click", () => {
